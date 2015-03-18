@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   File      : Price.xml
+   Author    : cmartin
+   Copyright : Decision Insight Information Group (2015)
+   Created   : 17-02-2015
+   Revision  : $Revision: 1.1 $
+
+   History
+     17-02-2015 cmartin The initial version.
+ -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+  <!-- Application Framework Property Configuration -->
+
+  <bean id="applicationProperties" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="ignoreResourceNotFound" value="true" />
+    <property name="locations">
+      <list>
+       <value>classpath:application.properties</value>
+       <value>classpath:system.properties</value>
+     </list>
+   </property>
+ </bean>
+
+  <!-- Application Framework Services Configuration -->
+
+  <import resource="eis.xml" />
+  <import resource="persistence.xml" />
+  <import resource="session.xml" />
+
+  <!-- Import Services -->
+
+  <import resource="price.xml" />
+
+</beans>
+
+

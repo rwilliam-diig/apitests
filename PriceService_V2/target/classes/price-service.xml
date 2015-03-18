@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   File      : Price.xml
+   Author    : cmartin
+   Copyright : Decision Insight Information Group (2015)
+   Created   : 17-02-2015
+   Revision  : $Revision: 1.1 $
+
+   History
+     17-02-2015 cmartin The initial version.
+ -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+  <bean id="priceService" class="com.diig.attis.price.service.impl.LocalPriceService">
+    <property name="eventHandler">
+      <bean class="com.diig.common.event.impl.BlockingEventHandler" />
+    </property>
+    <property name="eisService" ref="${eis.service.beanName}" />
+    <property name="eisCredentials" value="${eis.service.credentials}"/>    
+    <property name="defaultPriceStrategy" ref="retailPriceStrategy"/>
+    <property name="strategies">
+      <map>
+        <!--<entry key="SF#?#SF000124433" value-ref="discountPriceStrategy"/>
+        <entry key="SF#SF_LARGE_COMMERICAL#?" value-ref="bundlePriceStrategy"/>-->
+        <!-- entry key="MB#?#?" value-ref="retailPriceStrategy" />
+        <entry key="MB#?#CUSTOMER1" value-ref="discountPriceStrategy" />
+        <entry key="MB#?#CUSTOMER3" value-ref="bundlePriceStrategy" />-->
+        <entry key="QA#?#?" value-ref="retailsPriceStrategy" />
+        <entry key="QA#?#TEST_CUSTOMER1" value-ref="discountPriceStrategy" />
+        <entry key="QA#?#TEST_CUSTOMER3" value-ref="bundlePriceStrategy" />
+      </map>
+    </property>
+  </bean>
+  
+  <bean name="retailPriceStrategy" class="com.diig.attis.price.service.impl.RetailPriceStrategy">
+    <property name="eisService" ref="eisService" />
+    <property name="eisCredentials" value="testUser"/>
+  </bean>
+  
+  <bean name="discountPriceStrategy" class="com.diig.attis.price.service.impl.DiscountPriceStrategy">
+    <property name="eisService" ref="eisService" />
+    <property name="eisCredentials" value="testUser"/>
+  </bean>
+  
+  <bean name="bundlePriceStrategy" class="com.diig.attis.price.service.impl.BundlePriceStrategy">
+    <property name="eisService" ref="eisService" />
+    <property name="eisCredentials" value="testUser"/>
+    <property name="fallbackStrategy" ref="discountPriceStrategy" />
+  </bean>
+</beans>
+
+

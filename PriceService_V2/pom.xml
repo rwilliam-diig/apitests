@@ -1,0 +1,150 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+		<groupId>com.diig</groupId>
+		<artifactId>common-master</artifactId>
+		<version>3.0.1-RELEASE</version>
+	</parent>
+	<artifactId>PriceService_V2</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+  <properties>
+  <common.application.version>3.0.0-RELEASE</common.application.version>
+<application.spring.adaptor.version>3.0.0-RELEASE</application.spring.adaptor.version>
+<common.service.version>3.0.0-RELEASE</common.service.version>
+<common.eis.version>3.2.0-RELEASE</common.eis.version>
+<common.eis.hibernate.adaptor.version>3.2.1-RELEASE</common.eis.hibernate.adaptor.version>
+<common.event.version>3.0.1-RELEASE</common.event.version>
+<eis.model.adaptor.version>3.0.4-RELEASE</eis.model.adaptor.version>
+<common.model.version>3.0.0-RELEASE</common.model.version>
+<common.json.support.version>1.0.0-RELEASE</common.json.support.version>
+</properties>
+<dependencies>
+<dependency>
+<groupId>com.diig</groupId>
+<artifactId>common-application</artifactId>
+<!--  <scope>test</scope> -->
+</dependency>
+<dependency>
+<groupId>com.diig</groupId>
+<artifactId>common-application-spring-adaptor</artifactId>
+<!-- scope>test</scope>-->
+</dependency>
+<dependency>
+<groupId>com.diig</groupId>
+<artifactId>common-service</artifactId>
+</dependency>
+<dependency>
+<groupId>com.diig</groupId>
+<artifactId>common-service-extension</artifactId>
+</dependency>
+<dependency>
+<groupId>com.diig</groupId>
+<artifactId>common-eis</artifactId>
+</dependency>
+<dependency>
+<groupId>com.diig</groupId>
+<artifactId>common-eis-xml-adaptor</artifactId>
+</dependency>
+<dependency>
+<groupId>com.diig</groupId>
+<artifactId>common-eis-hibernate-adaptor</artifactId>
+</dependency>
+<dependency>
+<groupId>com.diig</groupId>
+<artifactId>common-eis-model-adaptor</artifactId>
+</dependency>
+<dependency>
+<groupId>com.diig</groupId>
+<artifactId>common-object-support</artifactId>
+</dependency>
+<dependency>
+<groupId>com.diig</groupId>
+<artifactId>common-model</artifactId>
+</dependency>
+<dependency>
+	<groupId>com.diig</groupId>
+	<artifactId>common-json-support</artifactId>
+</dependency>
+<dependency>
+<groupId>com.diig</groupId>
+<artifactId>common-conversion-support</artifactId>
+</dependency>
+<dependency>
+	<groupId>log4j</groupId>
+	<artifactId>log4j</artifactId>
+</dependency>
+</dependencies>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.diig</groupId>
+				<artifactId>common-object-support</artifactId>
+				<version>1.0.0-RELEASE</version>
+			</dependency>
+			<dependency>
+				<groupId>com.diig</groupId>
+				<artifactId>common-application</artifactId>
+				<version>${common.application.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.diig</groupId>
+				<artifactId>
+					common-application-spring-adaptor
+				</artifactId>
+				<version>${application.spring.adaptor.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.diig</groupId>
+				<artifactId>common-service</artifactId>
+				<version>${common.service.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.diig</groupId>
+				<artifactId>common-service-extension</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.diig</groupId>
+				<artifactId>common-eis</artifactId>
+				<version>${common.eis.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.diig</groupId>
+				<artifactId>common-eis-xml-adaptor</artifactId>
+				<version>1.0.1-RELEASE</version>
+			</dependency>
+			<dependency>
+				<groupId>com.diig</groupId>
+				<artifactId>common-eis-hibernate-adaptor</artifactId>
+				<version>
+					${common.eis.hibernate.adaptor.version}
+				</version>
+			</dependency>
+			<dependency>
+				<groupId>com.diig</groupId>
+				<artifactId>common-eis-model-adaptor</artifactId>
+				<version>${eis.model.adaptor.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.diig</groupId>
+				<artifactId>common-model</artifactId>
+				<version>${common.model.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.diig</groupId>
+				<artifactId>common-json-support</artifactId>
+				<version>${common.json.support.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.diig</groupId>
+				<artifactId>common-conversion-support</artifactId>
+				<version>1.0.0-RELEASE</version>
+			</dependency>
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>1.2.17</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+</project>

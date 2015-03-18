@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   File      : Price.xml
+   Author    : cmartin
+   Copyright : Decision Insight Information Group (2015)
+   Created   : 17-02-2015
+   Revision  : $Revision: 1.2 $
+
+   History
+     17-02-2015 cmartin The initial version.
+ -->
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+  <bean id="priceProperties"
+        class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="locations">
+      <list>
+        <!--<value>classpath:service.properties</value>-->
+        <!--<value>classpath:security.properties</value>-->
+      </list>
+    </property>
+  </bean>
+
+  <import resource="com/diig/sqa/config/price-prototypes.xml" />
+  <import resource="com/diig/sqa/config/price-dao.xml" />
+  <import resource="com/diig/sqa/config/price-service.xml" />
+</beans>
+
+

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   File      : Price.xml
+   Author    : cmartin
+   Copyright : Decision Insight Information Group (2015)
+   Created   : 17-02-2015
+   Revision  : $Revision: 1.1 $
+
+   History
+     17-02-2015 cmartin The initial version.
+ -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+  <!-- Database -->
+  <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+    <property name="driverClassName">
+      <value>${persistence.datasource.driver}</value>
+    </property>
+    <property name="url" value="${persistence.datasource.url}"/>
+    <property name="username" value="${persistence.datasource.username}" />
+    <property name="password" value="${persistence.datasource.password}" />
+  </bean>
+
+  <bean id="hibernateProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+    <property name="properties">
+      <props>
+        <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+        <prop key="hibernate.hbm2ddl.import_files">import.sql</prop>
+        <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+        <prop key="hibernate.query.substitutions">${hibernate.query.substitutions}</prop>
+        <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+        <prop key="hibernate.c3p0.minPoolSize">${hibernate.c3p0.minPoolSize}</prop>
+        <prop key="hibernate.c3p0.maxPoolSize">${hibernate.c3p0.maxPoolSize}</prop>
+        <prop key="hibernate.c3p0.timeout">${hibernate.c3p0.timeout}</prop>
+        <prop key="hibernate.c3p0.max_statement">${hibernate.c3p0.max_statement}</prop>
+        <prop key="hibernate.c3p0.testConnectionOnCheckout">${hibernate.c3p0.testConnectionOnCheckout}</prop>
+        <prop key="hibernate.transaction.factory_class">${hibernate.transaction.factory_class}</prop>
+        <prop key="hibernate.current_session_context_class">${hibernate.current_session_context_class}</prop>
+      </props>
+    </property>
+  </bean>
+
+  <!-- Hibernate SessionFactory -->
+  <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+    <property name="dataSource">
+      <ref local="dataSource"/>
+    </property>
+    <property name="hibernateProperties">
+      <ref bean="hibernateProperties" />
+    </property>
+    <property name="mappingResources">
+      <list>
+        <value>com\diig\attis\price\model\PriceSet.hbm.xml</value>
+        <value>com\diig\attis\price\model\SaleTax.hbm.xml</value>
+        <value>com\diig\attis\price\model\BasePrice.hbm.xml</value>
+        <value>com\diig\attis\price\model\ProductDiscount.hbm.xml</value>
+        <value>com\diig\attis\price\model\BundleDiscount.hbm.xml</value>
+        <value>com\diig\attis\price\model\Bundle.hbm.xml</value>
+        <value>com\diig\attis\price\model\Price.hbm.xml</value>
+        <value>com\diig\attis\price\model\PriceItem.hbm.xml</value>
+      </list>
+    </property>
+  </bean>
+</beans>
+
+

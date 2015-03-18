@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   File      : Price.xml
+   Author    : cmartin
+   Copyright : Decision Insight Information Group (2015)
+   Created   : 17-02-2015
+   Revision  : $Revision: 1.1 $
+
+   History
+     17-02-2015 cmartin The initial version.
+ -->
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+  <bean id="priceSetQueryHandler"  class="com.diig.attis.price.dao.hibernate.PriceSetFilterHibQueryHandler" />
+  <bean id="priceSetDAO" class="com.diig.attis.price.dao.hibernate.PriceSetHibDAO" >
+    <constructor-arg value="com.diig.attis.price.model.PriceSet" />
+    <constructor-arg value="com.diig.attis.price.model.impl.PriceSetImpl" />
+    <constructor-arg ref="${session.service.beanName}"/>
+    <constructor-arg ref="${persistence.sessionFactory.beanName}" />
+    <property name="queryHandlers">
+      <map>
+        <entry key="com.diig.attis.price.model.impl.PriceSetFilterImpl" value-ref="priceSetQueryHandler" />
+      </map>
+    </property>
+    <property name="eventHandler">
+      <bean class="com.diig.common.event.impl.BlockingEventHandler" />
+    </property>
+  </bean>
+  <!--<bean id="SaleTaxQueryHandler"  class="com.diig.attis.price.dao.hibernate.SaleTaxFilterHibQueryHandler" />-->
+  <bean id="SaleTaxDAO" class="com.diig.attis.price.dao.hibernate.SaleTaxHibDAO" >
+    <constructor-arg value="com.diig.attis.price.model.SaleTax" />
+    <constructor-arg value="com.diig.attis.price.model.impl.SaleTaxImpl" />
+    <constructor-arg ref="${session.service.beanName}"/>
+    <constructor-arg ref="${persistence.sessionFactory.beanName}" />
+    <!--<property name="queryHandlers">
+      <map>
+        <entry key="com.diig.attis.price.model.impl.SaleTaxFilterImpl" value-ref="SaleTaxQueryHandler" />
+      </map>
+    </property>-->
+    <property name="eventHandler">
+      <bean class="com.diig.common.event.impl.BlockingEventHandler" />
+    </property>
+  </bean>
+  <!--<bean id="BasePriceQueryHandler"  class="com.diig.attis.price.dao.hibernate.BasePriceFilterHibQueryHandler" />-->
+  <bean id="BasePriceDAO" class="com.diig.attis.price.dao.hibernate.BasePriceHibDAO" >
+    <constructor-arg value="com.diig.attis.price.model.BasePrice" />
+    <constructor-arg value="com.diig.attis.price.model.impl.BasePriceImpl" />
+    <constructor-arg ref="${session.service.beanName}"/>
+    <constructor-arg ref="${persistence.sessionFactory.beanName}" />
+    <!--<property name="queryHandlers">
+      <map>
+        <entry key="com.diig.attis.price.model.impl.BasePriceFilterImpl" value-ref="BasePriceQueryHandler" />
+      </map>
+    </property>-->
+    <property name="eventHandler">
+      <bean class="com.diig.common.event.impl.BlockingEventHandler" />
+    </property>
+  </bean>
+  <bean id="ProductDiscountQueryHandler"  class="com.diig.attis.price.dao.hibernate.ProductDiscountFilterHibQueryHandler" />
+  <bean id="ProductDiscountDAO" class="com.diig.attis.price.dao.hibernate.ProductDiscountHibDAO" >
+    <constructor-arg value="com.diig.attis.price.model.ProductDiscount" />
+    <constructor-arg value="com.diig.attis.price.model.impl.ProductDiscountImpl" />
+    <constructor-arg ref="${session.service.beanName}"/>
+    <constructor-arg ref="${persistence.sessionFactory.beanName}" />
+    <property name="queryHandlers">
+      <map>
+        <entry key="com.diig.attis.price.model.impl.ProductDiscountFilterImpl" value-ref="ProductDiscountQueryHandler" />
+      </map>
+    </property>
+    <property name="eventHandler">
+      <bean class="com.diig.common.event.impl.BlockingEventHandler" />
+    </property>
+  </bean>
+  <bean id="BundleDiscountQueryHandler"  class="com.diig.attis.price.dao.hibernate.BundleDiscountFilterHibQueryHandler" />
+  <bean id="BundleDiscountDAO" class="com.diig.attis.price.dao.hibernate.BundleDiscountHibDAO" >
+    <constructor-arg value="com.diig.attis.price.model.BundleDiscount" />
+    <constructor-arg value="com.diig.attis.price.model.impl.BundleDiscountImpl" />
+    <constructor-arg ref="${session.service.beanName}"/>
+    <constructor-arg ref="${persistence.sessionFactory.beanName}" />
+    <property name="queryHandlers">
+      <map>
+        <entry key="com.diig.attis.price.model.impl.BundleDiscountFilterImpl" value-ref="BundleDiscountQueryHandler" />
+      </map>
+    </property>
+    <property name="eventHandler">
+      <bean class="com.diig.common.event.impl.BlockingEventHandler" />
+    </property>
+  </bean>
+  <bean id="BundleQueryHandler"  class="com.diig.attis.price.dao.hibernate.BundleFilterHibQueryHandler" />
+  <bean id="BundleDAO" class="com.diig.attis.price.dao.hibernate.BundleHibDAO" >
+    <constructor-arg value="com.diig.attis.price.model.Bundle" />
+    <constructor-arg value="com.diig.attis.price.model.impl.BundleImpl" />
+    <constructor-arg ref="${session.service.beanName}"/>
+    <constructor-arg ref="${persistence.sessionFactory.beanName}" />
+    <property name="queryHandlers">
+      <map>
+        <entry key="com.diig.attis.price.model.impl.BundleFilterImpl" value-ref="BundleQueryHandler" />
+      </map>
+    </property>
+    <property name="eventHandler">
+      <bean class="com.diig.common.event.impl.BlockingEventHandler" />
+    </property>
+  </bean>
+  <!--<bean id="PriceQueryHandler"  class="com.diig.attis.price.dao.hibernate.PriceFilterHibQueryHandler" />-->
+  <bean id="priceDAO" class="com.diig.attis.price.dao.hibernate.PriceHibDAO" >
+    <constructor-arg value="com.diig.attis.price.model.Price" />
+    <constructor-arg value="com.diig.attis.price.model.impl.PriceImpl" />
+    <constructor-arg ref="${session.service.beanName}"/>
+    <constructor-arg ref="${persistence.sessionFactory.beanName}" />
+    <!--<property name="queryHandlers">
+      <map>
+        <entry key="com.diig.attis.price.model.impl.PriceFilterImpl" value-ref="PriceQueryHandler" />
+      </map>
+    </property>-->
+    <property name="eventHandler">
+      <bean class="com.diig.common.event.impl.BlockingEventHandler" />
+    </property>
+  </bean>
+</beans>
+
+

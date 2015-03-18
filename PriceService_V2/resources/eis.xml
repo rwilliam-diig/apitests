@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   File      : Price.xml
+   Author    : cmartin
+   Copyright : Decision Insight Information Group (2015)
+   Created   : 17-02-2015
+   Revision  : $Revision: 1.1 $
+
+   History
+     17-02-2015 cmartin The initial version.
+ -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+  <!-- EIS Service : Using the parent session and authentication services -->
+  <bean id="eisService" class="com.diig.common.eis.service.impl.LocalEisService">
+    <property name="daos">
+      <map>
+        <entry key="com.diig.attis.price.model.PriceSet" value-ref="priceSetDAO"/>
+        <entry key="com.diig.attis.price.model.SaleTax" value-ref="SaleTaxDAO"/>
+        <entry key="com.diig.attis.price.model.BasePrice" value-ref="BasePriceDAO"/>
+        <entry key="com.diig.attis.price.model.ProductDiscount" value-ref="ProductDiscountDAO"/>
+        <entry key="com.diig.attis.price.model.BundleDiscount" value-ref="BundleDiscountDAO"/>
+        <entry key="com.diig.attis.price.model.Bundle" value-ref="BundleDAO"/>
+        <entry key="com.diig.attis.price.model.Price" value-ref="priceDAO"/>
+      </map>
+    </property>
+    <property name="sessionService" ref="${session.service.beanName}"/>
+  </bean>
+</beans>
+
+

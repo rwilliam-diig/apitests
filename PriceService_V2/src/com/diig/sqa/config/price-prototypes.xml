@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   File      : Price.xml
+   Author    : cmartin
+   Copyright : Decision Insight Information Group (2015)
+   Created   : 17-02-2015
+   Revision  : $Revision: 1.1 $
+
+   History
+     17-02-2015 cmartin The initial version.
+ -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+  <bean id="com.diig.attis.price.model.PriceSet" class="com.diig.attis.price.model.impl.PriceSetImpl" scope="prototype" factory-method="newInstance"/>
+  <!--<bean id="com.diig.attis.price.model.PriceSetList" class="com.diig.attis.price.model.impl.PriceSetListImpl" scope="prototype"/>-->
+  <bean id="com.diig.attis.price.model.SaleTax" class="com.diig.attis.price.model.impl.SaleTaxImpl" scope="prototype" factory-method="newInstance"/>
+  <!--<bean id="com.diig.attis.price.model.SaleTaxList" class="com.diig.attis.price.model.impl.SaleTaxListImpl" scope="prototype"/>-->
+  <bean id="com.diig.attis.price.model.BasePrice" class="com.diig.attis.price.model.impl.BasePriceImpl" scope="prototype" factory-method="newInstance"/>
+  <!--<bean id="com.diig.attis.price.model.BasePriceList" class="com.diig.attis.price.model.impl.BasePriceListImpl" scope="prototype"/>-->
+  <bean id="com.diig.attis.price.model.ProductDiscount" class="com.diig.attis.price.model.impl.ProductDiscountImpl" scope="prototype" factory-method="newInstance"/>
+  <!--<bean id="com.diig.attis.price.model.ProductDiscountList" class="com.diig.attis.price.model.impl.ProductDiscountListImpl" scope="prototype"/>-->
+  <bean id="com.diig.attis.price.model.BundleDiscount" class="com.diig.attis.price.model.impl.BundleDiscountImpl" scope="prototype" factory-method="newInstance"/>
+  <!--<bean id="com.diig.attis.price.model.BundleDiscountList" class="com.diig.attis.price.model.impl.BundleDiscountListImpl" scope="prototype"/>-->
+  <bean id="com.diig.attis.price.model.Bundle" class="com.diig.attis.price.model.impl.BundleImpl" scope="prototype" factory-method="newInstance"/>
+  <!--<bean id="com.diig.attis.price.model.BundleList" class="com.diig.attis.price.model.impl.BundleListImpl" scope="prototype"/>-->
+  <bean id="com.diig.attis.price.model.Price" class="com.diig.attis.price.model.impl.PriceImpl" scope="prototype" factory-method="newInstance"/>
+  <!--<bean id="com.diig.attis.price.model.PriceList" class="com.diig.attis.price.model.impl.PriceListImpl" scope="prototype"/>-->
+  <bean id="com.diig.attis.price.model.PriceItem" class="com.diig.attis.price.model.impl.PriceItemImpl" scope="prototype" factory-method="newInstance"/>
+  <!--<bean id="com.diig.attis.price.model.PriceItemList" class="com.diig.attis.price.model.impl.PriceItemListImpl" scope="prototype"/>-->
+</beans>
+
+
